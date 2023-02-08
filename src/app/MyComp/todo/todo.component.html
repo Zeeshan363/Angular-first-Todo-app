@@ -1,0 +1,19 @@
+<!-- <p>todo works!</p> -->
+
+<div class="my-4 text-center">
+  <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+  <h4>Your Todos</h4>
+
+  <!-- ngIf is used if there is not todos then show "no todo to display " -->
+  <div *ngIf="this.todos.length === 0">No Todos to display</div>
+
+  <div *ngFor="let todo of todos" class="">
+    <app-todo-item
+      [todo]="todo"
+      (todoDelete)="deleteTodo($event)"
+    ></app-todo-item>
+  </div>
+</div>
+
+<!-- using [todo]="todo" to use it in different component.
+component name is "todo-item" -->
